@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f086a622-be41-478a-9320-3d1beb145ae5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1ZcsLNFcFL7acEfNQxkuULvy9Xm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HWLesson5" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f086a622-be41-478a-9320-3d1beb145ae5" name="Default Changelist" comment="" />
+      <created>1585149659498</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585149659498</updated>
+      <workItem from="1585149661240" duration="8465000" />
+      <workItem from="1585161356835" duration="2060000" />
+      <workItem from="1585207749664" duration="10938000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="490" y="325" key="FileChooserDialogImpl" timestamp="1585219861033">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="490" y="325" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1585219861033" />
+    <state x="356" y="127" key="SettingsEditor" timestamp="1585150961551">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="356" y="127" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1585150961551" />
+    <state x="817" y="186" key="search.everywhere.popup" timestamp="1585209830049">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="817" y="186" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1585209830049" />
+  </component>
+</project>

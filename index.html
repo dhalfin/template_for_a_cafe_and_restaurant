@@ -1,0 +1,1216 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Pesto - italian food </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+  >
+  <meta name="viewport" content="width=devise-width, initial-scale=1" />
+  <link href="img/logo-default1-140x57.png" rel="shortcut icon" type="image/x-icon" />
+  <link rel="stylesheet" href="css/all.css">
+  <style>
+
+    @import url('https://fonts.googleapis.com/css?family=Yellowtail&display=swap');
+
+    *
+    {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body
+    {
+      width: 100%;
+      height: 100%;
+    }
+
+    .screen
+    {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    @keyframes rotate_bgr
+    {
+      from
+      {
+        transform: rotate(0deg) scale(1, 1);
+      }
+      50%
+      {
+        transform: rotate(+5deg) scale(1.1, 1.1);
+      }
+      to
+      {
+        transform: rotate(0deg) scale(1, 1);
+      }
+    }
+
+    #s0
+    {
+      background-color: blue;
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: -1;
+    }
+
+    #header
+    {
+      background-color: darkblue;
+      height: 80px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    @media (max-width: 360px)
+    {
+      #logo
+      {
+        font-family: 'Yellowtail', cursive;
+        font-size: 30px;
+        color: white;
+      }
+    }
+
+    @media (min-width: 361px)
+    {
+      #logo
+      {
+        font-family: 'Yellowtail', cursive;
+        font-size: 50px;
+        color: white;
+      }
+    }
+
+
+
+    #ref
+    {
+      font-size: 20px;
+      color: white;
+    }
+
+
+    @media (min-width: 1000px)
+    {
+      .subheader
+      {
+        height: 120px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+      }
+      nav
+      {
+        display: flex;
+        font-size: 15px;
+        color: white;
+        width: 30%;
+      }
+
+      .subheader nav div
+      {
+        margin-left: 20px;
+        font-weight: bold;
+        transition: 1s all;
+      }
+
+      .subheader nav div:hover
+      {
+        color: green;
+        cursor: pointer;
+        transition: 1s all;
+      }
+
+      #openMenu
+      {
+        display: none;
+      }
+      #side_menu
+      {
+        display: none;
+      }
+    }
+
+    .book_now
+    {
+      width: 130px;
+      height: 40px;
+      background-color: white;
+      font-size: 15px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+      cursor: pointer;
+      transition: 1s all;
+    }
+
+    .book_now:hover
+    {
+      background-color: black;
+      color: white;
+      transition: 1s all;
+    }
+
+
+    @media (max-width: 999px)
+    {
+      .subheader
+      {
+        height: 80px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+      }
+      nav
+      {
+        display: none;
+      }
+
+      .subheader .book_now
+      {
+        display: none;
+      }
+      #openMenu
+      {
+        display: inline-block;
+        margin: 20px;
+        cursor: pointer;
+      }
+
+      .menu_bar
+      {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+      }
+
+      #side_menu
+      {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 200px;
+        height: 100vh;
+        background-color: rgb(68, 65, 65);
+        z-index: 1;
+        font-size: 15px;
+        color: white;
+        transition-property: all;
+        transition-duration: 1s;
+      }
+      #side_menu .book_now
+      {
+        margin: 10px;
+      }
+      .side_menu_div
+      {
+        padding: 10px;
+        cursor: pointer;
+        transition: all 1s;
+      }
+      .side_menu_div:hover
+      {
+        background-color: green;
+        transition: all 1s;
+      }
+    }
+
+
+    #topheader
+    {
+      background-color: rgba(130, 130, 130, 0.4);
+      transition: all 3s ease;
+    }
+
+    #scrollheader
+    {
+      background-color: rgb(50, 50, 50);
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      transition: all 3s ease;
+    }
+
+    @media (min-width: 500px)
+    {
+      #bgr
+      {
+        position: absolute;
+        background-image: url("img/bg-banner-2.jpg");
+        background-size: cover;
+        width: 120%;
+        height: 120%;
+        animation-name: rotate_bgr;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        z-index: -1;
+      }
+      #static_bg
+      {
+        display: none;
+      }
+      #logo img
+      {
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 499px)
+    {
+      /*   #bgr
+         {
+             background: url("img/bg-bunner-2.jpg") 100%;
+             width: 100%;
+             height: 100%;
+         }*/
+
+      #static_bg
+      {
+        width: 500px;
+      }
+      #s0
+      {
+        height: 300px;
+      }
+      #s1
+      {
+        height: 300px;
+      }
+      #logo img
+      {
+        display: none;
+      }
+    }
+
+    #cooker
+    {
+      width: 420px;
+      height: 320px;
+      max-width: 90vw;
+      max-height: 60vw;
+      margin: 0 50px;
+    }
+
+    #desc_div
+    {
+      padding-top: 30px;
+      width: 450px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0 50px;
+    }
+
+    #desc_title
+    {
+      width: 100%;
+      font-size: 50px;
+      font-weight: bold;
+      color: rgb(50,50,50);
+    }
+
+    #s2
+    {
+      background-color: rgb(245, 245, 245);
+      display: flex;
+      overflow: hidden;
+      align-items: flex-start;
+      align-content: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      height: auto;
+      min-height: 70vh;
+    }
+
+    #s3
+    {
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      overflow: hidden;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      height: auto;
+      min-height: 80vh;
+    }
+
+    #featured
+    {
+      text-align: center;
+      padding: 0 50px;
+    }
+
+    #featured>div
+    {
+      font-size: 50px;
+      margin: 50px;
+    }
+
+    #featured>p
+    {
+      margin: 0 30px;
+    }
+
+    #featured_images_div
+    {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #featured_images_div>div
+    {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    #featured_images_div>div>p
+    {
+      margin-top: 10px;
+    }
+
+    #featured_images_div>div>p:last-child
+    {
+      color: green;
+    }
+
+    .featured_img
+    {
+      width: 300px;
+      height: 350px;
+    }
+
+    #s4
+    {
+      background-color: rgb(245, 245, 245);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      height: auto;
+      min-height: 70vh;
+      padding-bottom: 50px;
+    }
+
+    #s4>h2
+    {
+      margin: 50px 0;
+    }
+
+    #rest_menu
+    {
+      width: 50%;
+      min-width: 300px;
+      background-color: white;
+      margin-bottom: 50px;
+    }
+
+    #rest_menu_header
+    {
+      border-radius: 10px 10px 0 0;
+      height: 80px;
+      background-color: rgb(50,50,50);
+      display: flex;
+      color: white;
+      font-size: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #rest_menu_header div
+    {
+      margin: 20px;
+      color: gray;
+      font-weight: bold;
+      transition: all 1s;
+    }
+
+    #rest_menu_header div.clicked
+    {
+      color: white;
+    }
+
+    #rest_menu_header div:hover
+    {
+      cursor: pointer;
+      color: white;
+      transition: all 1s;
+    }
+
+    #rest_menu_body>div
+    {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    #rest_menu_body
+    {
+      transition: all 1s;
+    }
+
+    .hide
+    {
+      opacity: 0;
+    }
+
+    #rest_menu_body>div>div:nth-child(1)
+    {
+      color: green;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    #rest_menu_body>div>div:nth-child(2)
+    {
+      margin: 20px 0;
+      font-size: 25px;
+    }
+
+    #s5
+    {
+      background-color: rgb(245, 245, 245);
+      width: 100%;
+      overflow: hidden;
+      transition-property: height;
+      transition-duration: 1s;
+    }
+
+    #gallery
+    {
+      transition-property: width;
+      transition-duration: 1s;
+    }
+
+    #gallery>div
+    {
+      display: flex;
+      width: 100%;
+    }
+
+    #gallery>div>div
+    {
+      text-align: center;
+    }
+
+    .a0, .a1
+    {
+      display: inline-block;
+    }
+
+    #s6
+    {
+      background-color: rgb(245, 245, 245);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      height: auto;
+      min-height: 70vh;
+      padding-bottom: 50px;
+      vertical-align: top;
+    }
+
+    ._left_img
+    {
+      opacity: 0;
+    }
+
+    ._right_img
+    {
+      opacity: 0;
+    }
+
+    ._upper_img
+    {
+      opacity: 0;
+    }
+
+    ._down_img
+    {
+      opacity: 0;
+    }
+
+    .left_img
+    {
+      display: initial;
+      position: relative;
+      animation: put_left_image;
+      animation-duration: 2s;
+    }
+
+    .right_img
+    {
+      position: relative;
+      animation: put_right_image;
+      animation-duration: 2s;
+    }
+
+    .upper_img
+    {
+      position: relative;
+      animation: put_upper_image;
+      animation-duration: 1s;
+    }
+
+    .down_img
+    {
+      position: relative;
+      animation: put_down_image;
+      animation-duration: 1s;
+    }
+
+    @keyframes put_left_image
+    {
+      from
+      {
+        left: -500px;
+        opacity: 0;
+      }
+      to
+      {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes put_right_image
+    {
+      from
+      {
+        left: 500px;
+        opacity: 0;
+      }
+      to
+      {
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+
+    @keyframes put_upper_image
+    {
+      from
+      {
+        top: -500px;
+      }
+      to
+      {
+        top: 0;
+      }
+    }
+
+    @keyframes put_down_image
+    {
+      from
+      {
+        top: 500px;
+      }
+      to
+      {
+        top: 0;
+      }
+    }
+
+    @keyframes increase
+    {
+      from
+      {
+        transform: scale(0.1, 0.1);
+      }
+      to
+      {
+        transform: scale(1, 1);
+      }
+    }
+
+
+    #a00
+    {
+      background-image: url('img/gallery-masonry-1-640x429.jpg');
+      background-size: cover;
+    }
+
+    #a01
+    {
+      background-image: url('img/gallery-masonry-2-640x429.jpg');
+      background-size: cover;
+    }
+
+    #a02
+    {
+      background-image: url('img/gallery-masonry-3-640x429.jpg');background-color: green;
+      background-size: cover;
+    }
+
+    .b0
+    {
+      transition: all 1s;
+    }
+
+
+    #a10
+    {
+      background-image: url('img/gallery-masonry-4-960x429.jpg');
+      background-size: cover;
+    }
+
+    #a11
+    {
+      background-image: url('img/gallery-masonry-5-960x429.jpg');
+      background-size: cover;
+    }
+
+    .b1
+    {
+      transition: all 1s;
+    }
+
+    .welcome .flat{
+      display: inline-block;
+      width: 15%;
+      height: 3px;
+      background-color: white;
+      opacity: 75%;
+      margin-top: 10%;
+      border: 0 none;
+    }
+
+    .welcome {
+      text-align: center;
+      width: 35%;
+    }
+    .welcome h1{
+       font-family: Garamond;
+       font-size: 70px;
+       height: 20px;
+       color: white;
+     }
+    .welcome h2{
+      font-family: Verdana Header;
+      color: white;
+    }
+
+    .bottomLine{
+      width: 100%;
+      height: 15%;
+      background-color: rgb(49, 48, 48);
+      margin-top: 10%;
+    }
+
+    .rights{
+      display: inline-block;
+      width: 35%;
+      height: 25%;
+      margin-top: 60px;
+      margin-left: 10%;
+    }
+    .bottomLine p{
+      color: antiquewhite;
+    }
+
+    .socials{
+      display: inline-block;
+      width: 30%;
+      height: 30%;
+      background-color: transparent;
+      text-align: right;
+      margin-left: 10%;
+    }
+    .socials i{
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<div class="screen" id="s0">
+  <div id="bgr"> </div>
+  <div class="welcome">
+    <h1>WELCOME</h1>
+    <hr class="flat">
+    <h2>Our restaurant offers full-service dining with breathtaking views seen from our indoor covered patio and our outdoor sundeck</h2>
+  </div>
+  <img src="img/bg-banner-2.jpg" id="static_bg" />
+</div>
+<div class="screen" id="s1">
+
+  <div class="subheader" id="topheader">
+    <div id="openMenu">
+      <div class="menu_bar"></div>
+      <div class="menu_bar"></div>
+      <div class="menu_bar"></div>
+    </div>
+    <div id="logo"> <img src="img/logo-default1-140x57.png" /> </div>
+    <nav>
+      <div class="goto">HOME</div>
+      <div class="goto">ABOUT</div>
+      <div class="goto">TYPOGRAPHY</div>
+      <div class="goto">CONTACTS</div>
+    </nav>
+    <div class="book_now"> BOOK NOW </div>
+  </div>
+  <div id ="side_menu" style="left: 0px;">
+    <div class="side_menu_div">HOME</div>
+    <div class="side_menu_div">ABOUT</div>
+    <div class="side_menu_div">TYPOGRAPHY</div>
+    <div class="side_menu_div">CONTACTS</div>
+    <div class="book_now">BOOK NOW</div>
+  </div>
+</div>
+<div class="screen" id="s2">
+  <div>
+    <img src="img/cook.png" id="cooker" class="_left_img" />
+  </div>
+  <div class="_right_img" id="desc_div">
+    <div id="desc_title"> About Us </div>
+    <div id="description"> Pesto is a family owned and operated Italian Restaurant offering a combination of fresh ingredients and authentic Italian cooking.
+      <br /><br /> We will make sure you are served the most authentic and fresh Italian dishes, while offering the best customer service. Our kitchen is committed to providing our guests with the best Italian Cuisine.
+    </div>
+    <div id="sign"> <img src="img/signature.png" /> </div>
+  </div>
+</div>
+<div class="screen" id="s3">
+  <div id="featured" class="_upper_img">
+    <div id="featured_title"> Featured Offers </div>
+    <p id="featured_text"> We offer a great variety of the best Italian dishes to our visitors and guests. Below are some of our most popular main dishes and desserts. </p>
+  </div>
+  <br />
+  <div id="featured_images_div">
+    <div class="_down_img">
+      <div style="background-image: url('img/rav.jpg');" class="featured_img"> </div>
+      <p> Ravioli </p>
+      <p> $8 </p>
+    </div>
+    <div class="_down_img">
+      <div style="background-image: url('img/pasta.jpg');" class="featured_img"> </div>
+      <p> Black Pasta </p>
+      <p> $13 </p>
+    </div>
+    <div class="_down_img">
+      <div style="background-image: url('img/ice.jpg');" class="featured_img"> </div>
+      <p> Gelato </p>
+      <p> $4 </p>
+    </div>
+  </div>
+</div>
+<div id="s4" class="screen">
+  <h2> Our Restaurant Menu </h2>
+  <div id="rest_menu">
+    <div id="rest_menu_header">
+      <div>MAINS</div>
+      <div>DESSERTS</div>
+      <div>DRINKS</div>
+    </div>
+    <div id="rest_menu_body">
+    </div>
+  </div>
+</div>
+<div id="s5">
+  <div id="gallery">
+    <div>
+      <div id="b00" class="b0"> <div id="a00" class="a0 _upper_img"></div> </div>
+      <div id="b01" class="b0"> <div id="a01" class="a0 _upper_img"></div> </div>
+      <div id="b02" class="b0"> <div id="a02" class="a0 _upper_img"></div> </div>
+    </div>
+    <div>
+      <div id="b10" class="b1"> <div id="a10" class="a1 _down_img"></div> </div>
+      <div id="b11" class="b1"> <div id="a11" class="a1 _down_img"></div> </div>
+    </div>
+  </div>
+</div>
+<!--<div id="s6" class="screen">-->
+<!--  <h2> Recent News </h2>-->
+<div class="bottomLine">
+  <div class="rights">
+    <div id="foot_logo"> <img src="img/logo-default1-140x57.png" /> </div>
+    <nav>
+      <div class="foot_goto">MENU</div>
+      <div class="foot_goto">BLOG</div>
+      <div class="foot_goto">CONTACTS</div>
+      <div class="foot_goto">GALLERY</div>
+      <div class="foot_goto">ABOUT</div>
+    </nav>
+    <p>©  2020 Pesto. All Rights Reserved. Privacy Policy. Design by Templatemonster</p>
+  </div>
+  <div class="socials">
+    <i class="fab fa-facebook-square fa-3x"></i>
+    <i class="fab fa-instagram fa-3x"></i>
+    <i class="fab fa-youtube fa-3x"></i>
+    <i class="fab fa-twitter-square fa-3x"></i>
+    <i class="fab fa-pinterest fa-3x"></i>
+  </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+<script type="text/javascript">
+  "use strict"
+
+
+  // let data = [[{
+  //   date: 'JUL 02, 2019',
+  //   name: 'Genuine Italian Pizza: Authenticity and Choice',
+  //   description: 'As an Italian restaurant, we are very proud of our delicious authentic pizzas. Our three most popular choices are the Rustica, the Toscana and...',
+  //   info: 'Read more ->'
+  // },{
+  //   date: 'JUL 12, 2019',
+  //   name: 'Italian vs. American Spaghetti: Top 5 Differences',
+  //   description: 'Commonly, when we hear there is spaghetti for dinner we will be expecting a red tomato sauce with meat and seasonings poured over long...',
+  //   info: 'Read more ->'
+  // },{
+  //   date: 'AUG 02, 2019',
+  //   name: 'The Delicious History of Lasagna and Its Origins',
+  //   description: 'Lasagna, could there be a more perfect dish? It’s comfort food on steroids. Layers of cheese generously piled on top of decadent amounts...',
+  //   info: 'Read more ->'
+  // }],[{
+  //   date: 'AUG 15, 2019',
+  //   name: 'Making Gelato Like a True Italian: Tips From Our Chef',
+  //   description: 'Most would agree that gelato is the most delicious frozen dessert; the perfect ending to any meal. With origins in Sicily, gelato has been made famous...',
+  //   info: 'Read more ->'
+  // },{
+  //   date: 'SEP 15, 2019',
+  //   name: 'Italian Ingredients You Can Easily Grow at Home',
+  //   description: 'Imagine preparing an Italian dinner but having to stop cooking because you forget an ingredient and must run to the store. How nice would it be to go...',
+  //   info: 'Read more ->'
+  // },{
+  //   date: 'SEP 28, 2019',
+  //   name: 'Our Brief Guide to Pairing Wine and Pasta the Right Way',
+  //   description: 'To Italians, pasta is the food of the gods, and there is nothing better to go with a good pasta than a perfect wine. To the uninitiated, finding the right...',
+  //   info: 'Read more ->'
+  // }],
+  //   [{
+  //   date: 'OCT 02, 2019',
+  //   name: 'Top 10 Famous Spring Dishes in Italian Restaurants',
+  //   description: 'Spring is the time for growth and rebirth. One can see this throughout the countrysides of Italy with blooming flowers and budding trees. Springtime is...',
+  //   info: 'Read more ->'
+  // },{
+  //   date: 'OCT 17, 2019',
+  //   name: 'What Makes Some Seasonings Truly Italian?',
+  //   description: 'When thinking of Italian cuisine, dishes like pasta enveloped in hearty sauces come to mind. Certain flavors seem to be found across the different...',
+  //   info: 'Read more ->'
+  // },{
+  //   date: 'NOV 10, 2019',
+  //   name: 'Types of Italian Sausage and Why They Are Different',
+  //   description: 'There are many types of Italian sausage. The main difference in Italian sausage when compared to other sausages is the seasoning. The particular...',
+  //   info: 'Read more ->'
+  // }]];
+
+  function load()
+  {
+    console.log("load");
+    setTimeout(window.scrollTo, 10, 0, 0);
+    setTimeout(function(){loaded=true;}, 10, 0, 0);
+  }
+  window.addEventListener("load", load);
+
+  let side_menu_done=false;
+  $("#openMenu").click(function()
+  {
+    if(!side_menu_done)
+    {
+      let side_menu=$("<div>");
+      side_menu.attr("id", "side_menu");
+      $("#s1").append(side_menu);
+      let mas_div=[];
+      for(let i=0;i<4;i++)
+      {
+        mas_div[i]=$("<div>");
+        mas_div[i].addClass("side_menu_div");
+        side_menu.append(mas_div[i]);
+        mas_div[i].html( $("nav .goto").eq(i).html() );
+      }
+      let book_now=$("<div>");
+      book_now.addClass("book_now");
+      book_now.html("BOOK NOW");
+      side_menu.append(book_now);
+      side_menu_done=true;
+      side_menu.css("left", "-200px");
+    }
+
+    if($("#side_menu").css("left")=="-200px")
+      $("#side_menu").css("left", "0");
+    else
+      $("#side_menu").css("left", "-200px");
+  });
+
+
+  for(let i=0; i<document.querySelectorAll("#rest_menu_header>div").length; i++)
+    document.querySelectorAll("#rest_menu_header>div")[i].addEventListener("click", function(event){rest_menu_fill_content(event.target.innerHTML)});
+
+  rest_menu_fill_content("MAINS");
+
+  async function rest_menu_fill_content(option)
+  {
+    if(option=="MAINS")
+    {
+      $("#rest_menu_header>div").removeClass("clicked");
+      $("#rest_menu_header>div").eq(0).addClass("clicked");
+    }
+    if(option=="DESSERTS")
+    {
+      $("#rest_menu_header>div").removeClass("clicked");
+      $("#rest_menu_header>div").eq(1).addClass("clicked");
+    }
+    if(option=="DRINKS")
+    {
+      $("#rest_menu_header>div").removeClass("clicked");
+      $("#rest_menu_header>div").eq(2).addClass("clicked");
+    }
+    $("#rest_menu_body").addClass("hide");
+    let promise1 = new Promise((resolve, reject) => {setTimeout( () => resolve(1), 1000 )});
+    await promise1;
+    $("#rest_menu_body").removeClass("hide");
+    document.querySelector("#rest_menu_body").innerHTML="";
+    if(option=="MAINS")
+    {
+      rest_menu_fill_item("$25.89",
+              "Osso Buco",
+              "Osso Buco is one of the Italian greats - slow cooked veal in a white wine tomato sauce. Meltingly tender, this is both hearty and luxurious."
+      );
+      rest_menu_fill_item("$16.89",
+              "Pappardelle Mimmo",
+              "This delicious dish tops long, wide pasta with scallops, lobster, asparagus, butter, sage and truffle oil to cater every palate."
+      );
+      rest_menu_fill_item("$17.89",
+              "Trippa Satriano",
+              "Thinly sliced herb encrusted ahi tuna topped with diced tomatoes, olives, capers, red onions and fennel. Perfect choice even for the first-time visitors!"
+      );
+      rest_menu_fill_item("$18.89",
+              "Filetto Di Manzo",
+              "Wonderful combination of prime tenderloin, winter greens, Jerusalem artichoke puree, and oxtail reduction sauce."
+      );
+    }
+    if(option=="DESSERTS")
+    {
+      rest_menu_fill_item("$20.89",
+              "Tiramisu",
+              "A Pesto’s favorite - classic Italian dessert made with lady fingers, Mascarpone cheese & espresso. Perfect for both kids and adults."
+      );
+      rest_menu_fill_item("$6.89",
+              "Cannoli",
+              "Trio tower of cannoli filled with smooth ricotta, sugar & cinnamon, with chocolate & raspberry sauces. Single cannoli is also available."
+      );
+      rest_menu_fill_item("$5.89",
+              "Pistachio Passion",
+              "Layered pistachio cream, cream cheese custard & whipped cream atop a rich walnut crust."
+      );
+      rest_menu_fill_item("$4.89",
+              "Chocolate-and-Pistachio Biscotti",
+              "At Pesto, we vary these wonderful nutty biscotti, while also dipping them in melted dark chocolate for an extra layer of flavor."
+      );
+    }
+    if(option=="DRINKS")
+    {
+      rest_menu_fill_item("$10.89",
+              "Aperol Spritz",
+              "The most popular drink in Venice: refreshing, easygoing &…happy! Perfect to be sipped as an “Aperitivo” just before dinner - delightful!"
+      );
+      rest_menu_fill_item("$9.89",
+              "Negroni",
+              "Reward yourself with a moment of relaxation & pure pleasure while enjoying the full flavour & simplicity of a Negroni, an iconic Italian cocktail."
+      );
+      rest_menu_fill_item("$11.89",
+              "Negroni Sbagliato",
+              "A cocktail for those who prefer more delicate flavours but nonetheless want a drink full of taste & personality."
+      );
+      rest_menu_fill_item("$8.89",
+              "White Peach Bellini",
+              "White Peach Bellini is a classic drink from Venice Italy of white peach purée and Prosecco. It is one of our most popular drinks at Pesto."
+      );
+    }
+  }
+
+  function rest_menu_fill_item(price_val, name_val, description_val)
+  {
+    let price=document.createElement("div");
+    price.innerHTML=price_val;
+    let name=document.createElement("div");
+    name.innerHTML=name_val;
+    let description=document.createElement("div");
+    description.innerHTML=description_val;
+    let new_item=document.createElement("div");
+    document.querySelector("#rest_menu_body").append(new_item);
+    new_item.append(price);
+    new_item.append(name);
+    new_item.append(description);
+  }
+
+
+  $(".goto").click(() => {
+    console.log($(this).index());
+    let index=$(this).index();
+    $("html").animate({
+      scrollTop: $(".screen").eq(index+1).offset().top
+    }, 2000);
+  });
+
+
+  let loaded=false;
+  window.onscroll=f_scroll;
+  function f_scroll()
+  {
+    let scrll = window.pageYOffset;
+    if(scrll>0)
+      $(".subheader").attr("id", "scrollheader");
+    else
+      $(".subheader").attr("id", "topheader");
+    let wndHeight = document.documentElement.clientHeight;
+    let scrllBottom=window.pageYOffset+wndHeight;
+    if(loaded)
+    {
+      let left_img=document.getElementsByClassName("_left_img");
+      let right_img=document.getElementsByClassName("_right_img");
+      let upper_img=document.getElementsByClassName("_upper_img");
+      let down_img=document.getElementsByClassName("_down_img");
+      for(let i=0;i<left_img.length;i++)
+      {
+        if(wndHeight-left_img[i].getBoundingClientRect().y>150)  // getBoundingClientRect().y - расстояние от верха окна до элемента, меняется с прокруткой
+        {
+          $(left_img[i]).addClass("left_img");             //left_img[i].classList.add("left_img");
+          $(left_img[i]).removeClass("_left_img");             //left_img[i].classList.remove("_left_img");
+        }
+      }
+      for(let i=0;i<right_img.length;i++)
+      {
+        if(wndHeight-right_img[i].getBoundingClientRect().y>150)
+        {
+          right_img[i].classList.add("right_img");
+          right_img[i].classList.remove("_right_img");
+        }
+      }
+      for(let i=0;i<upper_img.length;i++)
+      {
+        if(wndHeight-upper_img[i].getBoundingClientRect().y>150)
+        {
+          upper_img[i].classList.add("upper_img");
+          upper_img[i].classList.remove("_upper_img");
+        }
+      }
+      for(let i=0;i<down_img.length;i++)
+      {
+        if(wndHeight-down_img[i].getBoundingClientRect().y>150)
+        {
+          down_img[i].classList.add("down_img");
+          down_img[i].classList.remove("_down_img");
+        }
+      }
+    }
+  }
+
+  let sol_x1=640;
+  let sol_y1=429;
+
+  let sol_x2=960;
+  let sol_y2=429;
+
+  let wndWidth = document.documentElement.clientWidth;
+  let div_width1=wndWidth/3;
+  let div_height1=div_width1/sol_x1*sol_y1;
+
+  let div_width2=wndWidth/2;
+  let div_height2=div_width2/sol_x2*sol_y2;
+
+  $(".b0").css("width", div_width1);
+  $(".b0").css("height", div_height1);
+  $(".a0").css("width", div_width1);
+  $(".a0").css("height", div_height1);
+
+  $(".b1").css("width", div_width2);
+  $(".b1").css("height", div_height2);
+  $(".a1").css("width", div_width2);
+  $(".a1").css("height", div_height2);
+
+  $("#gallery").css("width", parseFloat($(".a0").css("width"))*3);
+
+  window.addEventListener("resize", (event) => {
+    wndWidth = document.documentElement.clientWidth;
+    let img_width1=wndWidth/3;
+    let img_height1=img_width1/sol_x1*sol_y1;
+    $(".a0").css("width", img_width1);
+    $(".a0").css("height", img_height1);
+
+    let img_width2=wndWidth/2;
+    let img_height2=img_width2/sol_x2*sol_y2;
+    $(".a1").css("width", img_width2);
+    $(".a1").css("height", img_height2);
+
+    $("#s5").css("transition-duration", "0s");
+    $("#s5").css("height", $(".a1").offset().top + parseFloat($(".a1").css("height")) - $(".a0").offset().top);
+
+    resizeEnd();
+
+  }, false);
+
+  window.addEventListener("resizeEnd", (event) => {
+    console.log("STOP RESIZE");
+    let newWndWidth = document.documentElement.clientWidth;
+    let div_width1=newWndWidth/3;
+    let div_height1=div_width1/sol_x1*sol_y1;
+    $(".b0").css("width", div_width1);
+    $(".b0").css("height", div_height1);
+
+    let div_width2=newWndWidth/2;
+    let div_height2=div_width2/sol_x2*sol_y2;
+    $(".b1").css("width", div_width2);
+    $(".b1").css("height", div_height2);
+
+    $("#gallery").css("width", newWndWidth);
+    if(newWndWidth>wndWidth)
+    {
+      $("#s5").css("transition-duration", "0s");
+    }
+    else
+    {
+      $("#s5").css("transition-duration", "1s");
+    }
+    $("#s5").css("height", div_height1 + div_height2);
+
+  }, false);
+
+  function resizeEnd()
+  {
+    let wndWidth_now = document.documentElement.clientWidth;
+    let wndWidth_then;
+    setTimeout( () => {
+      wndWidth_then = document.documentElement.clientWidth;
+      if(wndWidth_now === wndWidth_then)
+      {
+        let event=new Event("resizeEnd", {bubbles: true});
+        document.dispatchEvent(event);
+      }
+      return false;
+    }, 1000);
+  }
+
+</script>
+
+
+
+</body>
+
+</html>
